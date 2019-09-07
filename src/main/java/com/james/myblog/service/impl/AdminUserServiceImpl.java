@@ -1,10 +1,9 @@
 package com.james.myblog.service.impl;
 
 import com.james.myblog.dao.AdminUserMapper;
-import com.james.myblog.enity.AdminUser;
+import com.james.myblog.entity.AdminUser;
 import com.james.myblog.service.AdminUserService;
 import com.james.myblog.util.MD5Util;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -14,7 +13,6 @@ import javax.annotation.Resource;
  * @create: 2019 - 09 - 03 0:27
  */
 
-@Service
 public class AdminUserServiceImpl implements AdminUserService {
     @Resource
     AdminUserMapper adminUserMapper;

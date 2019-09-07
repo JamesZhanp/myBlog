@@ -1,4 +1,4 @@
-package com.james.myblog.enity;
+package com.james.myblog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

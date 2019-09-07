@@ -1,11 +1,14 @@
 package com.james.myblog.service;
 
-import com.james.myblog.enity.AdminUser;
+import com.james.myblog.entity.AdminUser;
+import org.springframework.stereotype.Service;
 
 /**
  * @author: JamesZhan
  * @create: 2019 - 09 - 03 0:23
  */
+
+@Service
 public interface AdminUserService {
     /**
      * 登录接口

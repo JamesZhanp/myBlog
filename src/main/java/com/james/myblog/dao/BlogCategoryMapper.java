@@ -1,8 +1,7 @@
 package com.james.myblog.dao;
 
-import com.james.myblog.enity.BlogCategory;
+import com.james.myblog.entity.BlogCategory;
 import com.james.myblog.util.PageQueryUtil;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
  * @create: 2019 - 09 - 03 23:31
  */
 
-@Mapper
 public interface BlogCategoryMapper {
     int deleteByPrimaryKey(Integer categoryId);
 
