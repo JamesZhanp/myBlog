@@ -18,6 +18,15 @@ public class ResultGenerator {
     private static final int RESULT_CODE_SUCCESS = 200;
     private static final int RESULT_CODE_SERVER_ERROR = 500;
 
+
+    public static Result genSuccessResult() {
+        Result result = new Result();
+        result.setResultCode(RESULT_CODE_SUCCESS);
+        result.setMessage(DEFAULT_SUCCESS_MESSAGE);
+        return result;
+    }
+
+
     public static Result genSuccessResult(String message){
         Result result = new Result(RESULT_CODE_SUCCESS, message);
         return result;

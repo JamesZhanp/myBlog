@@ -1,6 +1,7 @@
 package com.james.myblog.util;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 分页工具类
@@ -21,7 +22,7 @@ public class PageQueryUtil extends LinkedHashMap<String, Object> {
 
     private int limit;
 
-    public PageQueryUtil(LinkedHashMap<String, Object> params) {
+    public PageQueryUtil(Map<String, Object> params) {
         this.page = Integer.parseInt(params.get("page").toString());
         this.limit = Integer.parseInt(params.get("limit").toString());
         this.put("start", (page - 1) * limit);

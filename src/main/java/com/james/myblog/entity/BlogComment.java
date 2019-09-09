@@ -2,6 +2,8 @@ package com.james.myblog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -15,6 +17,8 @@ public class BlogComment {
     private Long commentId;
 
     private Long blogId;
+
+    private String commentator;
 
     private String email;
 
