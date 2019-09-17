@@ -16,8 +16,8 @@ import java.util.Map;
  * @author: JamesZhan
  * @create: 2019 - 09 - 09 23:31
  */
-
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class LinkController {
     /**
      * 对于友情链接的操作

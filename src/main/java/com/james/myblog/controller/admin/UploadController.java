@@ -4,10 +4,7 @@ import com.james.myblog.config.Constants;
 import com.james.myblog.util.MyBlogUtil;
 import com.james.myblog.util.Result;
 import com.james.myblog.util.ResultGenerator;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +20,8 @@ import java.util.Random;
  * @author: JamesZhan
  * @create: 2019 - 09 - 09 23:36
  */
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class UploadController {
 
     @PostMapping("/upload/file")

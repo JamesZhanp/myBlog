@@ -3,9 +3,11 @@ package com.james.myblog.controller.admin;
 import com.james.myblog.entity.AdminUser;
 import com.james.myblog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,20 +15,22 @@ import javax.servlet.http.HttpSession;
  * @author: JamesZhan
  * @create: 2019 - 09 - 03 22:01
  */
-@RestController("/admin")
+@Controller
+@RequestMapping("/admin")
 public class AdminController {
-    @Autowired
+    @Resource
     private AdminUserService adminUserService;
-    @Autowired
+    @Resource
     private BlogService blogService;
-    @Autowired
+    @Resource
     private CategoryService categoryService;
-    @Autowired
+    @Resource
     private LinkService linkService;
-    @Autowired
+    @Resource
     private TagService tagService;
-    @Autowired
+    @Resource
     private CommentService commentService;
+
 
     @GetMapping({"/login"})
     public String login() {

@@ -2,6 +2,7 @@ package com.james.myblog.dao;
 
 import com.james.myblog.entity.Blog;
 import com.james.myblog.util.PageQueryUtil;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * @author: JamesZhan
  * @create: 2019 - 09 - 07 11:46
  */
+@Mapper
 public interface BlogMapper {
     int deleteByPrimaryKey(Long blogId);
 

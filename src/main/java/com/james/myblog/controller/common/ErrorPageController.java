@@ -26,74 +26,68 @@ public class ErrorPageController implements ErrorController {
 
     private static ErrorPageController errorPageController;
 
-    private final static String ERROR_PATH = "/error";
-
     @Autowired
     private ErrorAttributes errorAttributes;
 
-    public ErrorPageController(){
-        if (errorPageController == null){
-            errorPageController = new ErrorPageController();
+    private final static String ERROR_PATH = "/error";
+
+    public ErrorPageController(ErrorAttributes errorAttributes) {
+        this.errorAttributes = errorAttributes;
+    }
+
+    public ErrorPageController() {
+        if (errorPageController == null) {
+            errorPageController = new ErrorPageController(errorAttributes);
         }
     }
 
     @RequestMapping(value = ERROR_PATH, produces = "text/html")
-    public ModelAndView errorHtml(HttpServletRequest request){
+    public ModelAndView errorHtml(HttpServletRequest request) {
         HttpStatus status = getStatus(request);
-        if (HttpStatus.BAD_REQUEST == status){
+        if (HttpStatus.BAD_REQUEST == status) {
             return new ModelAndView("error/error_400");
-        }else if (HttpStatus.NOT_FOUND == status){
+        } else if (HttpStatus.NOT_FOUND == status) {
             return new ModelAndView("error/error_404");
-        }else{
+        } else {
             return new ModelAndView("error/error_5xx");
         }
     }
 
     @RequestMapping(value = ERROR_PATH)
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request){
+    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
         Map<String, Object> body = getErrorAttributes(request, getTraceParameter(request));
         HttpStatus status = getStatus(request);
-        return new ResponseEntity<>(body, status);
+        return new ResponseEntity<Map<String, Object>>(body, status);
     }
-
 
     @Override
     public String getErrorPath() {
         return ERROR_PATH;
     }
 
-    private boolean getTraceParameter(HttpServletRequest request){
+
+    private boolean getTraceParameter(HttpServletRequest request) {
         String parameter = request.getParameter("trace");
-        if (parameter == null){
+        if (parameter == null) {
             return false;
         }
         return !"false".equals(parameter.toLowerCase());
     }
 
-    /**
-     * 返回错误的信息
-     * @param request
-     * @param includeStackTrace
-     * @return
-     */
-
-    protected Map<String, Object> getErrorAttributes(HttpServletRequest request, boolean includeStackTrace){
+    protected Map<String, Object> getErrorAttributes(HttpServletRequest request, boolean includeStackTrace) {
         WebRequest webRequest = new ServletWebRequest(request);
-        return this.errorAttributes.getErrorAttributes(webRequest,includeStackTrace);
+        return this.errorAttributes.getErrorAttributes(webRequest, includeStackTrace);
     }
 
-    /**
-     * 获取请求的状态
-     * @param request
-     * @return
-     */
-    private HttpStatus getStatus(HttpServletRequest request){
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        if (statusCode != null){
+    private HttpStatus getStatus(HttpServletRequest request) {
+        Integer statusCode = (Integer) request
+                .getAttribute("javax.servlet.error.status_code");
+        if (statusCode != null) {
             try {
                 return HttpStatus.valueOf(statusCode);
-            }catch (Exception e){}
+            } catch (Exception ex) {
+            }
         }
         return HttpStatus.INTERNAL_SERVER_ERROR;
     }

@@ -1,6 +1,7 @@
 package com.james.myblog.dao;
 
 import com.james.myblog.entity.BlogTagRelation;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
  * @author: JamesZhan
  * @create: 2019 - 09 - 07 11:51
  */
+@Mapper
 public interface BlogTagRelationMapper {
 
     int deleteByPrimaryKey(Long relationId);

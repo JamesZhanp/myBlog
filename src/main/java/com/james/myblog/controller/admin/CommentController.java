@@ -15,8 +15,8 @@ import java.util.Map;
  * @author: JamesZhan
  * @create: 2019 - 09 - 09 22:40
  */
-
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class CommentController {
     @Autowired
     private CommentService commentService;

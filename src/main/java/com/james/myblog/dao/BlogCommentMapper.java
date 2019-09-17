@@ -1,6 +1,7 @@
 package com.james.myblog.dao;
 
 import com.james.myblog.entity.BlogComment;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Map;
  * @author: JamesZhan
  * @create: 2019 - 09 - 07 11:41
  */
+@Mapper
 public interface BlogCommentMapper {
     /**
      * 使用主键删除

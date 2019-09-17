@@ -30,7 +30,8 @@ import java.util.Random;
  * @create: 2019 - 09 - 09 22:28
  */
 
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class BlogController {
     @Autowired
     private BlogService blogService;

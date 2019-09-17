@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  * @create: 2019 - 09 - 03 0:23
  */
 
-@Service
+
 public interface AdminUserService {
     /**
      * 登录接口

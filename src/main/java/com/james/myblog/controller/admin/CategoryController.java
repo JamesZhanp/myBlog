@@ -16,7 +16,8 @@ import java.util.Map;
  * @create: 2019 - 09 - 09 22:37
  */
 
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

@@ -3,6 +3,7 @@ package com.james.myblog.dao;
 import com.james.myblog.entity.BlogTag;
 import com.james.myblog.entity.BlogTagCount;
 import com.james.myblog.util.PageQueryUtil;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author: JamesZhan
  * @create: 2019 - 09 - 07 11:50
  */
+@Mapper
 public interface BlogTagMapper {
     int deleteByPrimaryKey(Integer tagId);
 

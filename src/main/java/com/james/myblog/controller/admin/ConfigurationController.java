@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author: JamesZhan
  * @create: 2019 - 09 - 09 22:57
  */
-
-@RestController("/admin")
+@RestController
+@RequestMapping("/admin")
 public class ConfigurationController {
     /**
      * 设置控制器

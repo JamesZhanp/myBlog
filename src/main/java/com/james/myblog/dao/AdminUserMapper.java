@@ -1,6 +1,7 @@
 package com.james.myblog.dao;
 
 import com.james.myblog.entity.AdminUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -8,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
  * @create: 2019 - 09 - 02 23:58
  */
 
+@Mapper
 public interface AdminUserMapper {
     /**
      * 插入实体类 AdminUser
